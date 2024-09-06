@@ -5,6 +5,12 @@
     android:orientation="horizontal"
     android:padding="10dp">
 
+    <!-- Checkbox for the item -->
+    <CheckBox
+        android:id="@+id/item_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <!-- Image on the left side -->
     <ImageView
         android:id="@+id/item_image"
@@ -13,26 +19,13 @@
         android:src="@mipmap/ic_launcher"
         android:layout_marginEnd="10dp"/>
 
-    <!-- Text on the right side -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Text in the middle -->
+    <TextView
+        android:id="@+id/item_text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/item_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Title"
-            android:textSize="16sp"
-            android:textColor="#000"/>
-
-        <TextView
-            android:id="@+id/item_subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Subtitle"
-            android:textSize="14sp"
-            android:textColor="#7A7A7A"/>
-    </LinearLayout>
+        android:text="Sample Item"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:layout_gravity="center_vertical"/>
 </LinearLayout>

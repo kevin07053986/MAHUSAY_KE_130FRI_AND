@@ -5,36 +5,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.ArrayList;
 
 public class CustomAdapter extends BaseAdapter {
 
     private final Context context;
-    private final String[] titles;
-    private final String[] subtitles;
-    private final int[] images;
+    private final ArrayList<ItemModel> items;
 
-    public CustomAdapter(Context context, String[] titles, String[] subtitles, int[] images) {
+    public CustomAdapter(Context context, ArrayList<ItemModel> items) {
         this.context = context;
-        this.titles = titles;
-        this.subtitles = subtitles;
-        this.images = images;
+        this.items = items;
     }
 
     @Override
     public int getCount() {
-        return titles.length;
+        return items.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return items.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
@@ -44,15 +42,30 @@ public class CustomAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.list_item, parent, false);
         }
 
+        CheckBox checkBox = convertView.findViewById(R.id.item_checkbox);
         ImageView imageView = convertView.findViewById(R.id.item_image);
-        TextView titleView = convertView.findViewById(R.id.item_title);
-        TextView subtitleView = convertView.findViewById(R.id.item_subtitle);
+        TextView textView = convertView.findViewById(R.id.item_text);
 
-        // Set the data
-        imageView.setImageResource(images[position]);
-        titleView.setText(titles[position]);
-        subtitleView.setText(subtitles[position]);
+        // Get the current item
+        ItemModel currentItem = items.get(position);
+
+        // Set the data for the current item
+        checkBox.setChecked(currentItem.isChecked());
+        imageView.setImageResource(currentItem.getImageResource());
+        textView.setText(currentItem.getText());
 
         return convertView;
+    }
+
+    // Method to update the item at a specific position
+    public void updateItem(int position, String newText) {
+        items.get(position).setText(newText);
+        notifyDataSetChanged();
+    }
+
+    // Method to delete an item
+    public void deleteItem(int position) {
+        items.remove(position);
+        notifyDataSetChanged();
     }
 }
