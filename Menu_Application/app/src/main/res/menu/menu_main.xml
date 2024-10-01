@@ -1,0 +1,32 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- First menu option: Navigate to another fragment -->
+    <item
+        android:id="@+id/menu_navigate"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Go to Fragment"
+        app:showAsAction="never" /> <!-- Show only in overflow -->
+
+    <!-- Second menu option: Open a dialog -->
+    <item
+        android:id="@+id/menu_dialog"
+        android:icon="@drawable/baseline_exit_to_app_24"
+        android:title="Open Dialog"
+        app:showAsAction="never" /> <!-- Show only in overflow -->
+
+    <!-- Third menu option: Overflow menu with Exit submenu -->
+    <item
+        android:id="@+id/menu_more"
+        android:icon="@drawable/baseline_transit_enter_exit_24"
+        android:title="More"
+        app:showAsAction="never"> <!-- Keep this in the action bar -->
+
+        <menu>
+            <item
+                android:id="@+id/menu_exit"
+                android:title="Exit"
+                app:showAsAction="never" /> <!-- Submenu item -->
+        </menu>
+    </item>
+</menu>
