@@ -149,6 +149,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+            Button closeButton = view.findViewById(R.id.closeButton);
+            closeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("NewsListFragment", "Close button clicked");
+                    requireActivity().finish();  // Close the app by finishing the activity
+                }
+            });
+
             return view;
         }
     }
@@ -180,8 +189,8 @@ public class MainActivity extends AppCompatActivity {
             TextView contentTextView = view.findViewById(R.id.newsContentTextView);
             contentTextView.setText(content);
 
-            Button closeButton = view.findViewById(R.id.closeButton);
-            closeButton.setOnClickListener(new View.OnClickListener() {
+            Button backButton = view.findViewById(R.id.backButton);
+            backButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     MainActivity activity = (MainActivity) requireActivity();

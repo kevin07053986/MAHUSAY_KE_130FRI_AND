@@ -20,8 +20,8 @@
         android:textSize="16sp" />
 
     <Button
-        android:id="@+id/closeButton"
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Close" />
+        android:text="Back" />
 </LinearLayout>
