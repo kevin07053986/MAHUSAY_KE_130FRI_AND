@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         // Set the initial fragment
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new ToDoListFragment())
+                    .replace(R.id.fragment_container, new ProfileFragment())
                     .commit();
         }
 
