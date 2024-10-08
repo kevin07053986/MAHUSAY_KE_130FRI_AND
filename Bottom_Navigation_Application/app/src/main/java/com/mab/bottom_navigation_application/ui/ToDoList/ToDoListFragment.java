@@ -62,6 +62,7 @@ public class ToDoListFragment extends Fragment {
             if (!text.isEmpty()) {
                 ToDoListItem newItem = new ToDoListItem(R.drawable.img1, text, false);
                 itemList.add(newItem);
+                adapter.addItem(newItem);
                 adapter.notifyDataSetChanged();
                 inputText.setText("");
             }

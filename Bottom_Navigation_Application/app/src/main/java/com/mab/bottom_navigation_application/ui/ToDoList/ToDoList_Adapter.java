@@ -67,6 +67,12 @@ public class ToDoList_Adapter extends BaseAdapter {
         return view;
     }
 
+    public void addItem(ToDoListItem item) {
+        filteredItems.add(item);
+        items.add(item); // Also add it to the main list if needed for filtering
+        notifyDataSetChanged();
+    }
+
     private static class ViewHolder {
         final ImageView imageView;
         final TextView textView;
